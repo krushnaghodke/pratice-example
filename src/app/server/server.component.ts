@@ -18,4 +18,10 @@ export class ServerComponent{
        this.allowCreateServer = true;
      },2000);
    }
+
+   serverCreateMessage = 'No server created';
+
+   onServerCreate(){
+     this.serverCreateMessage = 'Server created';
+   }
 }
