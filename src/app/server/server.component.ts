@@ -24,7 +24,7 @@ export class ServerComponent{
    onServerCreate(){
      this.serverCreateMessage = 'Server created';
    }
-   serverName = '';
+   serverName = 'Server Test';
 
    onKeyUp(event: Event){
     return this.serverName = (<HTMLInputElement>event.target).value;
