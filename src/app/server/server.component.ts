@@ -12,4 +12,10 @@ export class ServerComponent{
    getServerStatus(){
      return this.serverStatus;
    }
+   allowCreateServer = false;
+   constructor() {
+     setTimeout(() => {
+       this.allowCreateServer = true;
+     },2000);
+   }
 }
