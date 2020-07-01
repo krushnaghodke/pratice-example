@@ -5,7 +5,12 @@
 <div app-successalert></div>
 <app-warningalert></app-warningalert>
 
+<label>Enter Value Here</label>
+<input class="form-control" (keyup)="onKeyUp($event)">
+<p>{{serverName}}</p>
+
 <p>My server have {{ serverId }} cpu's and it is {{ getServerStatus() }} now.</p>
 
 <button class="btn btn-primary" [disabled]="!allowCreateServer" (click)="onServerCreate()">Add New Server</button>
 <p>{{serverCreateMessage}}</p>
+
