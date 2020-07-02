@@ -1,7 +1,14 @@
+<div class="container">
+  <div class="row">
+    <button class="btn btn-success" (click)="ontoggleStatus()">Display Details</button>
+    <p *ngIf="text">This is testing text</p>
+    <div *ngFor="let logItem of log; let i = index" [ngStyle]="{ backgroundColor: i >= 5 ? 'blue' : 'transparent' }" [ngClass]="{online: i>=5 }">{{ logItem }}</div>
+  </div>
+</div>
+
 <h5>This is server module</h5>
-<!--<app-server></app-server>-->
-<!--<app-server></app-server>-->
-<!--<app-successalert></app-successalert>-->
+<app-server></app-server>
+<app-server></app-server>
 <div app-successalert></div>
 <app-warningalert></app-warningalert>
 
@@ -9,8 +16,18 @@
   <div class="row">
     <label>Enter Username</label>
     <input type="text" class="form-control" [(ngModel)]="username">
-    <p>{{username}}</p>
-
+    <p *ngIf="isUserCreated else noUserCreated">Customer with username {{username}} is created</p>
+    <ng-template #noUserCreated>
+        <p>No user created</p>
+    </ng-template>
     <button class="btn btn-primary" [disabled]="!username" (click)="onFormButtonClick()">Create User</button>
+    <hr>
+    <p [ngStyle]="{backgroundColor: getColor() }" [ngClass]="{online: serverStatus === 'online'}">Server is {{serverStatus}}</p>
+    <hr>
+    <label>Enter Server Name</label>
+    <input type="text" class="form-control" [(ngModel)]="serverName">
+    <button class="btn btn-success" (click)="onCreateServer()">Create Server</button>
+    <p>{{serverName}}</p>
+    <app-warningalert *ngFor="let server of servers"></app-warningalert>
   </div>
 </div>
