@@ -6,29 +6,15 @@ import { Component } from "@angular/core";
 })
 
 export class ServerComponent{
-   serverId = 10;
-   serverStatus = 'Online';
+  username = '';
 
-   getServerStatus(){
-     return this.serverStatus;
-   }
-   allowCreateServer = false;
-   constructor() {
-     setTimeout(() => {
-       this.allowCreateServer = true;
-     },2000);
-   }
+  onUserNameUpdate(event: Event){
+    return this.username = (<HTMLInputElement>event.target).value;
+  }
 
-   serverCreateMessage = 'No server created';
-
-   onServerCreate(){
-     this.serverCreateMessage = 'Server created';
-   }
-   serverName = 'Server Test';
-
-   onKeyUp(event: Event){
-    return this.serverName = (<HTMLInputElement>event.target).value;
-   }
+  onFormButtonClick(){
+    this.username = '';
+  }
 }
 
 

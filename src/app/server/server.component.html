@@ -5,13 +5,12 @@
 <div app-successalert></div>
 <app-warningalert></app-warningalert>
 
-<label>Enter Value Here</label>
-<input class="form-control" (keyup)="onKeyUp($event)">
-<input class="form-control" [(ngModel)]="serverName">
-<p>{{serverName}}</p>
+<div class="container">
+  <div class="row">
+    <label>Enter Username</label>
+    <input type="text" class="form-control" [(ngModel)]="username">
+    <p>{{username}}</p>
 
-<p>My server have {{ serverId }} cpu's and it is {{ getServerStatus() }} now.</p>
-
-<button class="btn btn-primary" [disabled]="!allowCreateServer" (click)="onServerCreate()">Add New Server</button>
-<p>{{serverCreateMessage}}</p>
-
+    <button class="btn btn-primary" [disabled]="!username" (click)="onFormButtonClick()">Create User</button>
+  </div>
+</div>
